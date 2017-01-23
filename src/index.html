@@ -1,14 +1,122 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="minimum-scale=1, width=device-width, maximum-scale=1, user-scalable=no, minimal-ui"/>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="minimum-scale=1, width=device-width, maximum-scale=1, user-scalable=no, minimal-ui" />
 	<link href="styles/style.css" rel="stylesheet" />
 	<title>frontend-ajax-table</title>
 </head>
+
 <body>
 	<main>
-		
+		<h2>1. Список всех пользователей.</h2>
+		<table>
+			<thead>
+				<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				</tr>
+			</thead>
+			<tbody class="table-all">		
+			</tbody>
+		</table>
+
+	<h2>2. Список активных пользователей.</h2>
+		<table>
+			<thead>
+				<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				</tr>
+			</thead>
+			<tbody class="table-active">		
+			</tbody>
+		</table>
+
+
+		<h2>3. Список всех пользователей, отсортированных по возрасту.</h2>
+		<table>
+			<thead>
+				<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				</tr>
+			</thead>
+			<tbody class="table-age">		
+			</tbody>
+		</table>
+
+		<h2>4. Список всех пользователей, отсортированных по имени.</h2>
+		<table>
+			<thead>
+				<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				</tr>
+			</thead>
+			<tbody class="table-name">		
+			</tbody>
+		</table>
+
+		<h2>5. Пользователи с фамилией не короче 6 символов.</h2>
+		<table>
+			<thead>
+				<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				</tr>
+			</thead>
+			<tbody class="table-lastname">		
+			</tbody>
+		</table>
+
+
 	</main>
 	<!--(if target dev)><!-->
 	<script src="../node_modules/systemjs/dist/system.src.js"></script>
@@ -20,4 +128,5 @@
 	<script src="build.js"></script>
 	<!(endif)-->
 </body>
+
 </html>
