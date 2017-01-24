@@ -52,10 +52,10 @@ function isActiveUser(item) {
     return item.isActive
 };
 
-//дать классы тхэду
-$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЯ ВО ВСЕ ТАБЛИЦЫ ЧЕРЕЗ THEAD
-users.getAll(function(data){
-    
+
+$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ ВО ВСЕ ТАБЛИЦЫ ЧЕРЕЗ THEAD
+users.getAll(function (data) {
+
     data.filter(isActiveUser).map(renderRow).forEach(function (item) {
         tableActive.append(item)
     }) //фильтр по активным
