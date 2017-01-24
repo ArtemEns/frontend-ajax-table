@@ -7,10 +7,29 @@ var tableAge = $('.table-age');
 var tableName = $('.table-name');
 var tableLastname = $('.table-lastname');
 var USERS_URL = 'http://www.mocky.io/v2/55f748b33568195d044b3dc8';
+var users = require('./users.js');
+
+
+
+function renderHead(item) {
+    return `<tr>
+        <th>Фото</th>
+        <th>Полное имя</th>
+        <th>Активный</th>
+        <th>Описание</th>
+        <th>Баланс</th>
+        <th>Возраст</th>
+        <th>Дата регистрации</th>
+        <th>Компания</th>
+        <th>Емейл</th>
+        <th>Номер телефона</th>
+        <th>Адрес</th>
+        </tr>`;
+}
 
 function renderRow(item) {
     return $(`<tr>
-        <td>${item.picture}</td>
+        <td><img src ="${item.picture}" width=32 height=32></td>
         <td>${item.name.first} ${item.name.last}</td>
         <td>${item.isActive}</td>
         <td>${item.about}</td>
@@ -18,8 +37,8 @@ function renderRow(item) {
         <td>${item.age}</td>
         <td>${item.registered}</td>
         <td>${item.company}</td>
-        <td>${item.email}</td>
-        <td>${item.phone}</td>
+        <td><a href="mailto:${item.email}">${item.email}</a></td>
+        <td><a href="tel:${item.phone}"> ${item.phone}</a></td>
         <td>${item.address}</td>
          </tr>`)
 }
@@ -33,9 +52,14 @@ function isActiveUser(item) {
     return item.isActive
 };
 
-data.filter(isActiveUser).map(renderRow).forEach(function (item) {
-    tableActive.append(item)
-}) //фильтр по активным
+//дать классы тхэду
+$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЯ ВО ВСЕ ТАБЛИЦЫ ЧЕРЕЗ THEAD
+users.getAll(function(data){
+    
+    data.filter(isActiveUser).map(renderRow).forEach(function (item) {
+        tableActive.append(item)
+    }) //фильтр по активным
+});
 
 //AGE SORTING
 function compareAge(personA, personB) {
@@ -72,14 +96,8 @@ function compareLastname(item) {
 }
 
 data.sort(compareLastname).map(renderRow).forEach(function (item) {
-    tableLastname.append(item)}) //по фамилии
-
-
-
-
-
-
-
+    tableLastname.append(item)
+}) //по фамилии
 
 
 // data.filter(function (item) {
