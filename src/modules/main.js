@@ -43,35 +43,40 @@ function renderRow(item) {
          </tr>`)
 }
 //ALL USERS
-data.map(renderRow).forEach(function (item) {
-    tableAllElem.append(item)
-})
+
+$('all-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+users.getAll(function (data) {
+    data.map(renderRow).forEach(function (item) {
+        tableAllElem.append(item)
+    })
+});
 
 //ACTIVE USERS
-function isActiveUser(item) {
+function isActiveUser(item) {             // функция - по Активным пользователям
     return item.isActive
 };
 
-
-$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ ВО ВСЕ ТАБЛИЦЫ ЧЕРЕЗ THEAD
+$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-
     data.filter(isActiveUser).map(renderRow).forEach(function (item) {
         tableActive.append(item)
     }) //фильтр по активным
 });
 
 //AGE SORTING
-function compareAge(personA, personB) {
+function compareAge(personA, personB) {     // функция - по возрасту
     return personA.age - personB.age;
-}
+};
 
-data.sort(compareAge).map(renderRow).forEach(function (item) {
-    tableAge.append(item)
-}) //фильтр по возрасту
+$('agesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+users.getAll(function (data) {
+    data.sort(compareAge).map(renderRow).forEach(function (item) {
+        tableAge.append(item)
+    }) //фильтр по возрасту
+})
 
 //NAME SORTING
-function compareName(userA, userB) {
+function compareName(userA, userB) {                    // функция - по имени
     var nameA = userA.name.first + userA.name.last;
     var nameB = userB.name.first + userB.name.last;
     if (nameA < nameB)
@@ -81,13 +86,16 @@ function compareName(userA, userB) {
     return 0
 }
 
-data.sort(compareName).map(renderRow).forEach(function (item) {
-    tableName.append(item)
-}) //фильтр по имени
+$('namesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+users.getAll(function (data) {
+    data.sort(compareName).map(renderRow).forEach(function (item) {
+        tableName.append(item)
+    }) //фильтр по имени
+});
 
 //LASTNAME SORTING
 
-function compareLastname(item) {
+function compareLastname(item) {                        // функция - по фамилии
     if (item.name.last.length >= 6) {
         return true;
     } else {
@@ -95,10 +103,12 @@ function compareLastname(item) {
     }
 }
 
-data.sort(compareLastname).map(renderRow).forEach(function (item) {
-    tableLastname.append(item)
-}) //по фамилии
-
+$('lastnamesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+users.getAll(function (data) {
+    data.sort(compareLastname).map(renderRow).forEach(function (item) {
+        tableLastname.append(item)
+    }) //по фамилии
+});
 
 // data.filter(function (item) {
 //     return $.
