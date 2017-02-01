@@ -44,7 +44,7 @@ function renderRow(item) {
 }
 //ALL USERS
 
-$('all-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+$('.all-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
     data.map(renderRow).forEach(function (item) {
         tableAllElem.append(item)
@@ -56,7 +56,7 @@ function isActiveUser(item) {             // функция - по Активн�
     return item.isActive
 };
 
-$('table thead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+$('.active-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
     data.filter(isActiveUser).map(renderRow).forEach(function (item) {
         tableActive.append(item)
@@ -68,7 +68,7 @@ function compareAge(personA, personB) {     // функция - по возра�
     return personA.age - personB.age;
 };
 
-$('agesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+$('.agesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
     data.sort(compareAge).map(renderRow).forEach(function (item) {
         tableAge.append(item)
@@ -86,7 +86,7 @@ function compareName(userA, userB) {                    // функция - по
     return 0
 }
 
-$('namesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+$('.namesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
     data.sort(compareName).map(renderRow).forEach(function (item) {
         tableName.append(item)
@@ -103,7 +103,7 @@ function compareLastname(item) {                        // функция - по
     }
 }
 
-$('lastnamesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
+$('.lastnamesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
     data.sort(compareLastname).map(renderRow).forEach(function (item) {
         tableLastname.append(item)
