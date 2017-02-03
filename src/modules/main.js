@@ -7,40 +7,10 @@ var tableName = $('.table-name');
 var tableLastname = $('.table-lastname');
 var USERS_URL = 'http://www.mocky.io/v2/55f748b33568195d044b3dc8';
 var users = require('./users.js');
+var renderHead = require('./renderHead.js');
+var renderRow = require('./renderRow.js')
 
 
-
-function renderHead(item) {
-    return `<tr>
-        <th>Фото</th>
-        <th>Полное имя</th>
-        <th>Активный</th>
-        <th>Описание</th>
-        <th>Баланс</th>
-        <th>Возраст</th>
-        <th>Дата регистрации</th>
-        <th>Компания</th>
-        <th>Емейл</th>
-        <th>Номер телефона</th>
-        <th>Адрес</th>
-        </tr>`;
-}
-
-function renderRow(item) {
-    return $(`<tr>
-        <td><img src ="${item.picture}" width=32 height=32></td>
-        <td>${item.name.first} ${item.name.last}</td>
-        <td>${item.isActive}</td>
-        <td>${item.about}</td>
-        <td>${item.balance}</td>
-        <td>${item.age}</td>
-        <td>${item.registered}</td>
-        <td>${item.company}</td>
-        <td><a href="mailto:${item.email}">${item.email}</a></td>
-        <td><a href="tel:${item.phone}"> ${item.phone}</a></td>
-        <td>${item.address}</td>
-         </tr>`)
-}
 //ALL USERS
 
 $('.all-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
