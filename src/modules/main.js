@@ -1,6 +1,5 @@
 'use strict';
 var $ = require('jquery');
-var data = require('./data.js');
 var tableAllElem = $('.table-all');
 var tableActive = $('.table-active');
 var tableAge = $('.table-age');
@@ -46,7 +45,7 @@ function renderRow(item) {
 
 $('.all-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-    users.map(renderRow).forEach(function (item) {
+    data.map(renderRow).forEach(function (item) {
         tableAllElem.append(item)
     })
 });
@@ -58,7 +57,7 @@ function isActiveUser(item) {             // функция - по Активн�
 
 $('.active-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-    users.filter(isActiveUser).map(renderRow).forEach(function (item) {
+    data.filter(isActiveUser).map(renderRow).forEach(function (item) {
         tableActive.append(item)
     }) //фильтр по активным
 });
@@ -70,7 +69,7 @@ function compareAge(personA, personB) {     // функция - по возра�
 
 $('.agesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-    users.sort(compareAge).map(renderRow).forEach(function (item) {
+    data.sort(compareAge).map(renderRow).forEach(function (item) {
         tableAge.append(item)
     }) //фильтр по возрасту
 })
@@ -88,7 +87,7 @@ function compareName(userA, userB) {                    // функция - по
 
 $('.namesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-    users.sort(compareName).map(renderRow).forEach(function (item) {
+    data.sort(compareName).map(renderRow).forEach(function (item) {
         tableName.append(item)
     }) //фильтр по имени
 });
@@ -105,7 +104,7 @@ function compareLastname(item) {                        // функция - по
 
 $('.lastnamesort-usersThead').append(renderHead())   // ПОДГРУЗКА ЗАГЛАВНОГО МЕНЮ 
 users.getAll(function (data) {
-    users.sort(compareLastname).map(renderRow).forEach(function (item) {
+    data.sort(compareLastname).map(renderRow).forEach(function (item) {
         tableLastname.append(item)
     }) //по фамилии
 });
